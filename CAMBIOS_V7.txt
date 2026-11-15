@@ -1,0 +1,16 @@
+RELEVAMIENTO COMUNA 4 — ACTUALIZACIÓN V7 SOBRE V6
+
+CAMBIOS
+1. Enviar PDF a Drive está habilitado desde el inicio.
+2. Al pulsarlo, la aplicación arma el PDF en memoria y lo envía directamente a Google Drive por Apps Script. No lo guarda primero en Descargas ni en caché.
+3. Generar PDF completo conserva la descarga local en Descargas/Comuna 4 - Relevamientos.
+4. La URL de Apps Script queda incorporada en la aplicación:
+   https://script.google.com/macros/s/AKfycbyXus7qgt5v8XZF2rmmMIcVKZpBEs4abA6yL7RDNU90UbnudUxhQJrzKJeIYz4cRGLj/exec
+5. Se incorpora un selector nativo de Android para elegir fotos desde la galería/archivos. Se admiten hasta cuatro imágenes y se conserva el procesamiento de orientación EXIF para el PDF.
+6. Se conserva la lógica de envío de datos a RECLAMOS SUACI SLA FINAL, incluyendo el manejo de más de un árbol para un mismo reclamo.
+
+IMPORTANTE
+- El envío a Drive depende de que la implementación de Apps Script siga activa, desplegada con acceso para cualquier usuario y ejecutándose como urbanisticacomuna4@gmail.com.
+- El archivo Code.gs del ZIP se incluye como referencia del backend. No reemplazar el Apps Script ya desplegado si el envío de datos a la planilla está funcionando y el código del servidor actual ya tiene las mismas acciones saveTree y savePdf.
+- El ZIP contiene el proyecto fuente para generar el APK. La compilación debe ejecutarse con el workflow de GitHub Actions incluido; este entorno no tiene un proyecto Android generado ni ha compilado el APK.
+- Antes de distribuir, probar en el teléfono: selección de fotos de galería, generación PDF local, envío PDF directo a Drive y envío de uno y dos árboles a la planilla.

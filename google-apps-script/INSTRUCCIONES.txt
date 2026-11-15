@@ -1,0 +1,12 @@
+INTEGRACIÓN GOOGLE SHEETS Y DRIVE — COMUNA 4
+
+1. Abrí el proyecto de Google Apps Script que vas a utilizar.
+2. Reemplazá el contenido de Code.gs por el archivo Code.gs de esta carpeta.
+3. Guardá y desplegá como Aplicación web:
+   - Ejecutar como: Yo (la cuenta urbanisticacomuna4@gmail.com).
+   - Quién tiene acceso: Cualquier usuario.
+4. Copiá la URL terminada en /exec. La aplicación la pedirá una sola vez por celular y la guardará localmente.
+5. El botón ENVIAR DATOS A PLANILLA busca exclusivamente el número AVISO en la columna A. Si no existe, no escribe.
+6. El botón ENVIAR PDF A DRIVE crea el PDF en el Drive de la cuenta propietaria del despliegue.
+
+IMPORTANTE: la primera vez, Google puede pedir autorización al propietario del script para acceder a la planilla y a Drive. El archivo PDF se guarda en la raíz de Mi unidad. Para moverlo a una carpeta específica, configurar una carpeta destino en Code.gs.

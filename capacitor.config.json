@@ -1,0 +1,11 @@
+{
+  "appId": "ar.gob.comuna4.relevamiento",
+  "appName": "Relevamiento Comuna 4",
+  "webDir": "web",
+  "bundledWebRuntime": false,
+  "plugins": {
+    "CapacitorHttp": {
+      "enabled": true
+    }
+  }
+}

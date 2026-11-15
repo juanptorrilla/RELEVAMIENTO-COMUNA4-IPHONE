@@ -1,0 +1,32 @@
+RELEVAMIENTO COMUNA 4 — PREPARACIÓN PWA PARA IPHONE
+
+Esta copia incorpora la primera capa PWA sin reemplazar ni quitar los archivos nativos de Android.
+
+INCORPORADO
+- manifest.webmanifest con nombre, color, modo standalone e íconos.
+- Ícono Apple Touch Icon para «Agregar a pantalla de inicio» en iPhone.
+- Service worker para almacenar la interfaz y los recursos locales necesarios.
+- Metaetiquetas para Safari/iOS.
+- Se conserva el formulario, IndexedDB, firmas, selección HTML de fotos como alternativa web, generación PDF y conexión Apps Script existentes.
+
+IMPORTANTE: ESTA COPIA TODAVÍA NO ES UNA APP IPHONE PUBLICADA NI UNA VERSIÓN VALIDADA EN UN IPHONE REAL.
+
+PASOS PENDIENTES ANTES DE USO
+1. Publicar el contenido de la carpeta web en un alojamiento HTTPS estable. PWA requiere HTTPS (salvo localhost).
+2. Asegurar que pdf-lib.min.js se genere en web/ ejecutando npm install y npm run build desde la raíz del proyecto. El workflow actual lo genera automáticamente.
+3. Probar en Safari de iPhone: agregar a pantalla de inicio, abrir sin conexión, selector de fotos, cámara, firma, recuperación de borradores, PDF, compartir/guardar PDF, envío a Drive y envío a Sheets.
+4. Verificar especialmente el envío a Apps Script desde Safari/iOS. El comportamiento de red/CORS debe confirmarse en dispositivo real.
+5. No desinstalar ni modificar la app Android operativa durante estas pruebas.
+
+INSTALACIÓN EN IPHONE (UNA VEZ PUBLICADA)
+1. Abrir la URL HTTPS desde Safari (no desde Chrome).
+2. Tocar Compartir.
+3. Elegir «Agregar a pantalla de inicio».
+4. Confirmar «Agregar».
+
+ALCANCE Y LIMITACIONES
+- Una PWA se instala desde Safari y no requiere App Store.
+- El selector web permite elegir fotos de la fototeca y, según el iPhone, tomar fotos desde el control de archivo/cámara.
+- Safari no ofrece el mismo acceso a carpetas/Descargas que Android. El PDF se deberá guardar/compartir mediante las opciones de iOS (por ejemplo, Guardar en Archivos).
+- La caché del service worker guarda la interfaz; no reemplaza la copia de seguridad de los relevamientos locales ni garantiza que Safari conserve datos si el usuario borra los datos del sitio.
+- Esta preparación no modifica la rama ni el repositorio GitHub original.

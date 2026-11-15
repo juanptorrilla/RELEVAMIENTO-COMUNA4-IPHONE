@@ -1,0 +1,20 @@
+{
+  "name": "relevamiento-arbolado",
+  "version": "6.0.0",
+  "private": true,
+  "scripts": {
+    "copy-pdf-lib": "node -e \"require('fs').copyFileSync('node_modules/pdf-lib/dist/pdf-lib.min.js','web/pdf-lib.min.js')\"",
+    "build": "npm run copy-pdf-lib"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/core": "^7.4.3",
+    "@capacitor/share": "^7.0.2",
+    "pdf-lib": "1.17.1",
+    "@capacitor/filesystem": "^7.1.4"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.3",
+    "@capacitor/assets": "^3.0.5"
+  }
+}
