@@ -450,21 +450,57 @@ async function flushPending(){const pending=JSON.parse(localStorage.getItem("c4_
 $("sendSheet").addEventListener("click",async()=>{try{const record=sheetRecord();if(!record.aviso){$("status").textContent="Completá el número de reclamo (AVISO) antes de enviar.";return;}if(!record.fecha){$("status").textContent="Revisá la fecha: debe tener el formato DD/MM/AAAA.";return;}if(!navigator.onLine){const pending=JSON.parse(localStorage.getItem("c4_pending_sheet")||"[]");pending.push(record);localStorage.setItem("c4_pending_sheet",JSON.stringify(pending));$("status").textContent="Sin conexión. Los datos quedaron guardados en este celular para enviarlos más tarde.";return;}$("sendSheet").disabled=true;const pendingSent=await flushPending();$("status").textContent="Buscando el reclamo por su número en la columna A...";const result=await postAppsScript({action:"saveTree",token:"C4-ARBOLADO-2026-PLANILLA-4",record});if(!result||result.ok!==true)throw new Error(result&&result.error||"No se pudo confirmar el envío.");$("status").textContent=(result.message||"Datos enviados a la planilla.")+(pendingSent?" También se enviaron "+pendingSent+" registro(s) que estaban pendientes.":"");}catch(e){console.error(e);$("status").textContent="No se pudieron enviar los datos: "+e.message;}finally{$("sendSheet").disabled=false;}});
 window.addEventListener("online",async()=>{try{const sent=await flushPending();if(sent)$("status").textContent="Se enviaron "+sent+" registro(s) pendientes a la planilla.";}catch(e){console.warn("No se pudieron reenviar registros pendientes",e);}});
 async function embedPhotoUpright(doc,file){
- let source=null,bitmap=null;
+ let source=null,bitmap=null,objectUrl=null;
  try{
-  if("createImageBitmap" in window){
-   try{bitmap=await createImageBitmap(file,{imageOrientation:"from-image"});}catch(_){bitmap=await createImageBitmap(file);}
-   source=bitmap;
-  }else{
-   const url=URL.createObjectURL(file);
-   try{source=await new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=reject;im.src=url;});}
-   finally{URL.revokeObjectURL(url);}
+  if(typeof createImageBitmap==="function"){
+   try{
+    bitmap=await createImageBitmap(file,{imageOrientation:"from-image"});
+    source=bitmap;
+   }catch(e){
+    console.warn("Se utilizará el decodificador alternativo",e);
+   }
   }
-  const c=document.createElement("canvas");c.width=source.width||source.naturalWidth;c.height=source.height||source.naturalHeight;
-  c.getContext("2d").drawImage(source,0,0,c.width,c.height);
-  const blob=await new Promise((resolve,reject)=>c.toBlob(b=>b?resolve(b):reject(new Error("No se pudo procesar la fotografía")),"image/jpeg",.96));
-  return await doc.embedJpg(await blob.arrayBuffer());
- }finally{if(bitmap&&bitmap.close)bitmap.close();}
+
+  if(!source){
+   objectUrl=URL.createObjectURL(file);
+   source=await new Promise((resolve,reject)=>{
+    const img=new Image();
+    img.onload=()=>resolve(img);
+    img.onerror=()=>reject(new Error("El navegador no pudo leer la fotografía."));
+    img.src=objectUrl;
+   });
+  }
+
+  const width=source.width||source.naturalWidth;
+  const height=source.height||source.naturalHeight;
+
+  if(!width||!height){
+   throw new Error("La fotografía no tiene dimensiones válidas.");
+  }
+
+  const canvas=document.createElement("canvas");
+  canvas.width=width;
+  canvas.height=height;
+
+  const ctx=canvas.getContext("2d");
+  if(!ctx)throw new Error("No se pudo preparar la fotografía.");
+
+  ctx.drawImage(source,0,0,width,height);
+
+  const blob=await new Promise((resolve,reject)=>{
+   canvas.toBlob(
+    b=>b?resolve(b):reject(new Error("No se pudo convertir la fotografía.")),
+    "image/png"
+   );
+  });
+
+  const bytes=new Uint8Array(await blob.arrayBuffer());
+  return await doc.embedPng(bytes);
+
+ }finally{
+  if(bitmap&&bitmap.close)bitmap.close();
+  if(objectUrl)URL.revokeObjectURL(objectUrl);
+ }
 }
 $("reset").onclick=()=>{if(!confirm("¿Borrar los datos del relevamiento actual? Los registros guardados en el historial se conservarán."))return;textFields.filter(id=>id!=="nombre"&&id!=="dni").forEach(id=>$(id).value="");checks.forEach(id=>$(id).checked=false);photos=[];renderPhotos();if(selectedInspector){$("nombre").value=selectedInspector.name;$("dni").value=selectedInspector.dni;drawInspectorSignature(selectedInspector);}else if(inspectorMode==="new"){ctx.clearRect(0,0,canvas.width,canvas.height);hasSignature=false;}$("fecha").value=todayAR();syncAddress();scheduleSave();};
 </script>
