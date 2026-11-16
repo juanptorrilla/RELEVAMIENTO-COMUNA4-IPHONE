@@ -277,6 +277,7 @@ function syncAddress(){$("calle2").value=[$("calle").value.trim(),$("numero").va
 let photos=[];
 function addPhotos(input){input.addEventListener("change",e=>{const incoming=[...e.target.files];photos=[...photos,...incoming].slice(0,4);renderPhotos();scheduleSave();e.target.value="";if(photos.length>=4)$("status").textContent="Se admite un máximo de cuatro fotografías.";});}
 addPhotos($("photosCamera"));
+addPhotos($("photosGallery"));
 $("photosGalleryPick").addEventListener("click",async()=>{
  try{
   const picker=window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.PhotoPicker;
