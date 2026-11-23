@@ -1,4 +1,4 @@
-const CACHE_NAME = 'relevamiento-comuna4-pwa-v1';
+const CACHE_NAME = 'relevamiento-comuna4-pwa-v2';
 const APP_SHELL = ['./', './index.html', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png', './pdf-lib.min.js'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)).then(() => self.skipWaiting()));
