@@ -2,44 +2,38 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#245c43">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Relevamiento C4">
-<meta name="mobile-web-app-capable" content="yes">
-<link rel="manifest" href="./manifest.webmanifest">
-<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Relevamiento Comuna 4</title>
 <style>
 :root{--green:#245c43;--bg:#f3f6f4;--line:#d9e2dc}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);font:15px system-ui,Arial;color:#1d2922}
-header{background:var(--green);color:white;padding:18px 16px;position:sticky;top:0;z-index:2}
-header h1{font-size:18px;margin:0 0 4px}header p{margin:0;font-size:12px;opacity:.9}
-main{max-width:850px;margin:auto;padding:14px}
-section{background:white;border:1px solid var(--line);border-radius:12px;padding:15px;margin:0 0 13px}
-h2{font-size:16px;color:var(--green);margin:0 0 12px}
-h3{font-size:14px;margin:14px 0 8px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.initial-fields{grid-template-columns:1.25fr .85fr 1fr}
-.field{display:flex;flex-direction:column;gap:4px;min-width:0}.field.full{grid-column:1/-1}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font:13px system-ui,Arial;color:#1d2922}
+header{background:var(--green);color:white;padding:13px 14px;position:sticky;top:0;z-index:2}
+header h1{font-size:16px;margin:0 0 3px}header p{margin:0;font-size:12px;opacity:.9}
+main{max-width:850px;margin:auto;padding:10px}
+section{background:white;border:1px solid var(--line);border-radius:10px;padding:11px;margin:0 0 9px}
+h2{font-size:14px;color:var(--green);margin:0 0 8px}
+h3{font-size:12px;margin:9px 0 5px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.initial-fields{grid-template-columns:1.25fr .85fr 1fr}
+.field{display:flex;flex-direction:column;gap:3px;min-width:0}.field.full{grid-column:1/-1}
 #arme{max-width:150px}
-.photo-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.photo-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
 .photo-list{grid-template-columns:repeat(2,minmax(0,1fr));max-width:420px}
 @media(max-width:540px){.photo-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
 label,.legend{font-size:12px;font-weight:650;color:#526258}
-input,select,textarea{width:100%;border:1px solid #cbd6ce;border-radius:8px;padding:10px;font:inherit;background:#fff}
-textarea{min-height:84px;resize:vertical}
-.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.check{display:flex;align-items:flex-start;gap:8px;font-size:13px;font-weight:400;color:#27352c}
+input,select,textarea{width:100%;border:1px solid #cbd6ce;border-radius:8px;padding:8px;font:inherit;background:#fff}
+textarea{min-height:66px;resize:vertical}
+.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.check{display:flex;align-items:flex-start;gap:6px;font-size:12px;font-weight:400;color:#27352c}
 .check input{width:18px;height:18px;margin:0;flex:none;accent-color:var(--green)}
-.note{font-size:12px;color:#64736a;margin:7px 0 0}
-button,.filelabel{border:0;border-radius:9px;background:var(--green);color:white;padding:12px 15px;font-weight:700;font-size:14px;cursor:pointer;display:inline-flex;justify-content:center;align-items:center}
+.note{font-size:11px;color:#64736a;margin:5px 0 0}
+button,.filelabel{border:0;border-radius:9px;background:var(--green);color:white;padding:9px 12px;font-weight:700;font-size:13px;cursor:pointer;display:inline-flex;justify-content:center;align-items:center}
 button.secondary{background:#e8efea;color:#244c39}
-.actions{display:flex;gap:9px;flex-wrap:wrap}
+.actions{display:flex;gap:7px;flex-wrap:wrap}
 #signature{width:100%;height:150px;border:1px dashed #8da596;border-radius:8px;touch-action:none;background:#fff}#signature.signature-locked{background:#f4f6f4;border-style:solid;opacity:.82}#entryScreen{max-width:560px;margin:12vh auto 0}#entryScreen select{min-height:46px} [hidden]{display:none!important}
 .photo-list{display:grid;grid-template-columns:1fr;gap:8px;margin-top:10px;max-width:360px}
 .photo-list img{width:100%;height:125px;object-fit:contain;background:#f7f9f7;border-radius:8px;border:1px solid var(--line)}
 .status{font-size:12px;color:#526258;margin-top:8px}
+.about-card{text-align:center;padding:12px 15px;margin-top:12px}.about-card h2{margin-bottom:8px}.about-copyright{font-size:12px;font-weight:650;color:#526258;margin:4px 0}.about-author{font-size:14px;font-weight:750;color:var(--green);margin:5px 0 2px}
 @media(max-width:540px){.grid,.checks{grid-template-columns:1fr}.initial-fields{grid-template-columns:1fr 1fr}.initial-fields .field:first-child{grid-column:1/-1}.photo-list{grid-template-columns:1fr}}
 </style>
 </head>
@@ -50,13 +44,12 @@ button.secondary{background:#e8efea;color:#244c39}
 <div class="field"><label for="inspectorSelect">Seleccionar inspector</label><select id="inspectorSelect"><option value="">Seleccioná un inspector...</option><option value="new">Nuevo inspector</option></select></div>
 <p class="note">Seleccioná tu nombre para completar automáticamente tus datos, o elegí «Nuevo inspector» para ingresar tus datos y firmar.</p>
 <div class="actions" style="margin-top:12px"><button id="enterForm" type="button" disabled>Ingresar a la planilla</button></div>
-
-<div style="margin:24px 0 10px;padding:15px;text-align:center;border-top:1px solid #ddd;color:#666;font-size:13px">
-  <strong style="display:block;color:#444;font-size:14px;margin-bottom:8px">Acerca de</strong>
-  <div>© 2026 – Todos los derechos reservados.</div>
-  <div style="margin-top:6px"><strong>Desarrollado por Juan Pablo Torrilla</strong></div>
-  <div style="margin-top:3px">Autor del desarrollo y diseño de la aplicación.</div>
-</div>
+</section>
+<section class="about-card" aria-label="Acerca de la aplicación">
+<h2>Acerca de</h2>
+<p class="about-copyright">© 2026 – Todos los derechos reservados.</p>
+<p class="about-author">Desarrollado por Juan Pablo Torrilla</p>
+<p class="note">Autor del desarrollo y diseño de la aplicación.</p>
 </section>
 <div id="formContent" hidden>
 <div class="actions" style="margin:10px 0 14px"><button id="backToInspectors" type="button" class="secondary">← Volver a selección de inspector</button></div>
@@ -149,6 +142,7 @@ button.secondary{background:#e8efea;color:#244c39}
 <label class="check"><input type="checkbox" id="p_refaldado"> Refaldado</label>
 <label class="check"><input type="checkbox" id="p_terciado"> Terciado</label>
 <label class="check"><input type="checkbox" id="p_balanceo"> Balanceo</label>
+<label class="check"><input type="checkbox" id="p_reduccion"> Reducción</label>
 </div>
 <h3>Otras intervenciones</h3><div class="checks">
 <label class="check"><input type="checkbox" id="extr_vereda"> Extracción c/vereda</label>
@@ -169,7 +163,7 @@ button.secondary{background:#e8efea;color:#244c39}
 <label class="check"><input type="checkbox" id="seguimiento"> G. Seguimiento</label>
 <label class="check"><input type="checkbox" id="vereda_elevada"> H. Vereda elevada</label>
 </div></section>
-<section><h2>Observaciones</h2><div class="field"><textarea id="observaciones" placeholder="Observaciones del relevamiento..."></textarea></div></section>
+<section><h2>Observaciones</h2><div class="field"><textarea id="observaciones" maxlength="1000" placeholder="Observaciones del relevamiento..."></textarea></div></section>
 <section><h2>Datos complementarios de vereda y entorno</h2><div class="grid">
 <div class="field"><label>Superficie (m²)</label><input id="superficie" inputmode="decimal"></div>
 <div class="field"><label>Código de baldosa</label><input id="codigo_baldosa"></div>
@@ -197,14 +191,40 @@ button.secondary{background:#e8efea;color:#244c39}
 </section>
 <section id="historySection"><h2>Guardado e historial</h2>
 <p class="note">Los relevamientos se guardan automáticamente en este dispositivo. Podés recuperar uno anterior o eliminarlo.</p>
-<div class="actions" style="margin:8px 0"><button id="saveRecord" type="button" class="secondary">Guardar relevamiento</button></div>
+<div class="actions" style="margin:7px 0"><button id="saveRecord" type="button" class="secondary">Guardar relevamiento</button><button id="recoverDrive" type="button" class="secondary">Recuperar PDF</button><input id="recoverPdfFile" type="file" accept="application/pdf,.pdf" hidden></div>
 <div id="historyList" class="status">Todavía no hay relevamientos guardados.</div></section>
 <section><div class="actions">
 <button id="generate" type="button">Generar PDF completo</button>
-<button id="openPdf" type="button" class="secondary" disabled>Ver último PDF</button><button id="sharePdf" type="button" class="secondary">Enviar PDF a Drive</button><button id="sendSheet" type="button" class="secondary">Enviar datos a planilla</button>
+<button id="sharePdf" type="button" class="secondary">Enviar PDF a Drive</button><button id="sendSheet" type="button" class="secondary">Enviar datos a planilla</button><button id="openDeny" type="button" class="secondary">Denegar reclamo</button>
 <button id="reset" type="button" class="secondary">Limpiar formulario</button>
 </div><p class="status" id="status">El relevamiento se guarda en este dispositivo. Los envíos a Drive y a la planilla son acciones voluntarias y requieren conexión a internet.</p></section>
 </div>
+<section id="denyScreen" hidden>
+<h2>Denegar reclamo</h2>
+<p class="note">El motivo y el complemento se incluirán en el correo al vecino. Las observaciones internas del relevamiento no se envían.</p>
+<div id="denyEditor">
+<div class="field"><label for="denyReason">Motivo de denegación</label><select id="denyReason">
+<option value="">Seleccioná un motivo...</option>
+<option>No corresponde extracción.</option>
+<option>Denegado.</option>
+<option>Árbol en buenas condiciones fitosanitarias.</option>
+<option>No hay árbol en la dirección indicada.</option>
+<option>No se observa levantamiento de vereda.</option>
+<option>No se encontró plantera.</option>
+<option>No hay chapa catastral.</option>
+<option>No requiere poda.</option>
+<option>No requiere intervención de arbolado.</option>
+<option>Se sugiere reiterar el reclamo entre mayo y septiembre, período correspondiente a este tipo de poda.</option>
+</select></div>
+<div class="field" style="margin-top:8px"><label for="denyExtra">Complemento para el vecino (máximo 200 caracteres)</label><textarea id="denyExtra" maxlength="200" rows="3"></textarea><p class="note"><span id="denyCount">0</span>/200 caracteres</p></div>
+<div class="actions" style="margin-top:10px"><button id="reviewDeny" type="button">Revisar correo</button><button id="cancelDeny" type="button" class="secondary">Volver al relevamiento</button></div>
+</div>
+<div id="denyPreviewPanel" hidden>
+<div class="field"><label for="denyEmailBody">Vista previa del correo (podés corregir el texto antes de enviarlo)</label><textarea id="denyEmailBody" rows="14" spellcheck="true" autocorrect="on" autocapitalize="sentences" autocomplete="on" style="width:100%;"></textarea></div>
+<div class="actions" style="margin-top:10px"><button id="confirmDeny" type="button">Confirmar envío</button><button id="editDeny" type="button" class="secondary">Volver a editar motivo</button><button id="cancelDenyPreview" type="button" class="secondary">Cancelar</button></div>
+</div>
+<p class="status" id="denyStatus"></p>
+</section>
 </main>
 <script src="./pdf-lib.min.js"></script>
 <script>
@@ -265,7 +285,7 @@ $("backToInspectors").addEventListener("click",async()=>{
   window.scrollTo(0,0);
 });
 function dataUrlToBytes(dataUrl){const raw=atob(dataUrl.split(",")[1]);const out=new Uint8Array(raw.length);for(let i=0;i<raw.length;i++)out[i]=raw.charCodeAt(i);return out;}
-const checks = ["seco","semiseco","incl_mayor","incl_menor","hacia_calle","hacia_prop","hacia_largo","descopado","descopado_brotado","copa_desbalanceada","cav_peq_basal","cav_peq_media","cav_peq_alto","cav_gr_basal","cav_gr_media","cav_gr_alto","fungicas","codominancias_fuste","chorreados","raiz_expuesta","levanta_vereda","fisuras_frente","tocones","bajas","codominancias_ramas","excesivas","secas","cavidades_ramas","mal_angulo","quebradas","invaden","color_anormal","manchas","def_total","def_parcial","insectos","obj_riesgo","obj_interferencias","obj_sitio","obj_regulacion","p_formacion","p_limpieza","p_aclareo","p_refaldado","p_terciado","p_balanceo","extr_vereda","extr_svereda","extr_cierre_plantera","corte_superficial","corte_profundo","trasplante","tratamiento","plantacion","cierre_plantera","apertura_plantera","ampliacion_plantera","reduccion_plantera","correr_plantera","banda","tutorado","seguimiento","vereda_elevada"];
+const checks = ["seco","semiseco","incl_mayor","incl_menor","hacia_calle","hacia_prop","hacia_largo","descopado","descopado_brotado","copa_desbalanceada","cav_peq_basal","cav_peq_media","cav_peq_alto","cav_gr_basal","cav_gr_media","cav_gr_alto","fungicas","codominancias_fuste","chorreados","raiz_expuesta","levanta_vereda","fisuras_frente","tocones","bajas","codominancias_ramas","excesivas","secas","cavidades_ramas","mal_angulo","quebradas","invaden","color_anormal","manchas","def_total","def_parcial","insectos","obj_riesgo","obj_interferencias","obj_sitio","obj_regulacion","p_formacion","p_limpieza","p_aclareo","p_refaldado","p_terciado","p_balanceo","p_reduccion","extr_vereda","extr_svereda","extr_cierre_plantera","corte_superficial","corte_profundo","trasplante","tratamiento","plantacion","cierre_plantera","apertura_plantera","ampliacion_plantera","reduccion_plantera","correr_plantera","banda","tutorado","seguimiento","vereda_elevada"];
 const textFields=["aviso","identificacion","arme","fecha","calle","numero","especie","altura","dap","cav_long","pared","enfermedades","observaciones","superficie","codigo_baldosa","pluvial","cordon","k","sup_total","riesgo","prioridad","nombre","dni","calle2","informe"];
 function todayAR(){const d=new Date();return String(d.getDate()).padStart(2,"0")+"/"+String(d.getMonth()+1).padStart(2,"0")+"/"+d.getFullYear();}
 function normalizeDate(v){if(/^\d{4}-\d{2}-\d{2}$/.test(v||"")){const [y,m,d]=v.split("-");return `${d}/${m}/${y}`;}return v||"";}
@@ -277,7 +297,6 @@ function syncAddress(){$("calle2").value=[$("calle").value.trim(),$("numero").va
 let photos=[];
 function addPhotos(input){input.addEventListener("change",e=>{const incoming=[...e.target.files];photos=[...photos,...incoming].slice(0,4);renderPhotos();scheduleSave();e.target.value="";if(photos.length>=4)$("status").textContent="Se admite un máximo de cuatro fotografías.";});}
 addPhotos($("photosCamera"));
-addPhotos($("photosGallery"));
 $("photosGalleryPick").addEventListener("click",async()=>{
  try{
   const picker=window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.PhotoPicker;
@@ -362,16 +381,61 @@ async function createPdf(saveLocal){
   putText(p1,$("altura").value,170,251,s1,6*0.86);putText(p1,$("dap").value,325,251,s1,6*0.86);
   putText(p1,$("cav_long").value,538,350,s1,6*0.86);putText(p1,$("pared").value,538,365,s1,6*0.86);
   t("enfermedades",500,496,7);
-  const obs=$("observaciones").value;
-  if(obs){const lines=obs.match(/.{1,100}(?:\s|$)/g)||[obs];lines.slice(0,5).forEach((line,i)=>putText(p1,line.trim(),100,707+i*22,s1,6.0));}
+  // Observaciones: adaptar el tamaño de letra para que el texto completo
+  // entre en cinco renglones, sin truncarlo ni invadir otros campos.
+  const obs=$("observaciones").value.slice(0,1000);
+  if(obs){
+    const maxObsWidth=550*s1;
+    const maxObsLines=5;
+    const wrapObservations=(value,size)=>{
+      const result=[];
+      const paragraphs=String(value).replace(/\r/g,"").split("\n");
+      for(const paragraph of paragraphs){
+        const words=paragraph.trim().split(/\s+/).filter(Boolean);
+        if(!words.length){if(paragraph==="")result.push("");continue;}
+        let current="";
+        for(const word of words){
+          let remaining=word;
+          while(remaining && font.widthOfTextAtSize(remaining,size)>maxObsWidth){
+            let cut=1;
+            while(cut<remaining.length && font.widthOfTextAtSize(remaining.slice(0,cut+1),size)<=maxObsWidth)cut++;
+            const piece=remaining.slice(0,cut);
+            if(current){result.push(current);current="";}
+            result.push(piece);
+            remaining=remaining.slice(cut);
+          }
+          if(!remaining)continue;
+          const candidate=current?current+" "+remaining:remaining;
+          if(font.widthOfTextAtSize(candidate,size)<=maxObsWidth)current=candidate;
+          else{if(current)result.push(current);current=remaining;}
+        }
+        if(current)result.push(current);
+      }
+      return result;
+    };
+    let obsFontSize=5.0;
+    let obsLines=wrapObservations(obs,obsFontSize);
+    while(obsLines.length>maxObsLines && obsFontSize>2.0){
+      obsFontSize=Math.max(2.0,obsFontSize-0.25);
+      obsLines=wrapObservations(obs,obsFontSize);
+    }
+    if(obsLines.length>maxObsLines){
+      throw new Error("Las observaciones no entran completas en los cinco renglones. Reducí el texto.");
+    }
+    obsLines.forEach((line,i)=>{if(line)putText(p1,line,100,707+i*10,s1,obsFontSize);});
+  }
   putText(p1,$("superficie").value,165+8,759,s1,4.8*0.86);putText(p1,$("codigo_baldosa").value,165+8,771,s1,4.8*0.86);putText(p1,$("pluvial").value,165+8,783,s1,4.8*0.86);putText(p1,$("cordon").value,165+8,794,s1,4.8*0.86);putText(p1,$("k").value,165+8,805,s1,4.8*0.86);putText(p1,$("sup_total").value,165+8,816,s1,4.8*0.86);
   t("prioridad",573,838,7);t("riesgo",573,851,7);
   t("nombre",96,892,7);t("dni",543,892,7);
+  // Única casilla de "Reducción", inmediatamente debajo de Balanceo.
+  // Se dibuja una sola vez y se alinea con las dimensiones de las casillas de la columna B.
+  p1.drawRectangle({x:235*s1,y:topY(p1.getHeight(),630,s1),width:29*s1,height:13*s1,borderColor:PDFLib.rgb(0,0,0),borderWidth:0.8*s1,color:PDFLib.rgb(1,1,1)});
+  putText(p1,"Reducción",264,630,s1,4.2);
   // Reemplazar el texto preimpreso "Regulación de" por "Estructura" sin alterar el resto de la planilla.
   p1.drawRectangle({x:118*s1,y:topY(p1.getHeight(),596,s1),width:66*s1,height:11*s1,color:PDFLib.rgb(1,1,1)});
   putText(p1,"Estructura",118,591,s1,4.2);
   putText(p2,$("calle2").value,220,132,s2,9);putText(p2,$("informe").value,550,897,s2,9);
-  const mark=(id,x,y)=>{if($(id).checked){const centers={91:103.5,155:181,207:221.5,235:249.5,260:249.5,326:340.5,354:368.5,489:505,527:546,588:603.5};const subir=(id==="tocones"||id==="bajas"||id==="codominancias_ramas"||id==="excesivas"||id==="secas"||id==="cavidades_ramas"||id==="mal_angulo"||id==="quebradas"||id==="invaden")?3:(id==="color_anormal"||id==="manchas"||id==="def_total"||id==="def_parcial"||id==="insectos")?5:(id==="p_balanceo"||id==="reduccion_plantera"||id==="correr_plantera")?2:(id==="corte_superficial"||id==="corte_profundo"||id==="banda"||id==="tutorado"||id==="seguimiento"||id==="vereda_elevada")?3:0;putMark(p1,centers[x]??(x+14),y+3-subir,s1);}};
+  const mark=(id,x,y)=>{if($(id).checked){const centers={91:103.5,155:181,207:221.5,235:249.5,260:249.5,326:340.5,354:368.5,489:505,527:546,588:603.5};const subir=(id==="tocones"||id==="bajas"||id==="codominancias_ramas"||id==="excesivas"||id==="secas"||id==="cavidades_ramas"||id==="mal_angulo"||id==="quebradas"||id==="invaden")?3:(id==="color_anormal"||id==="manchas"||id==="def_total"||id==="def_parcial"||id==="insectos")?5:(id==="p_reduccion")?8:(id==="p_balanceo"||id==="reduccion_plantera"||id==="correr_plantera")?2:(id==="corte_superficial"||id==="corte_profundo"||id==="banda"||id==="tutorado"||id==="seguimiento"||id==="vereda_elevada")?3:0;putMark(p1,centers[x]??(x+14),y+3-subir,s1);}};
   const m={
    seco:[489,205],semiseco:[588,205],incl_mayor:[489,250],incl_menor:[588,250],
    hacia_calle:[235,272],hacia_prop:[354,272],hacia_largo:[489,272],
@@ -385,7 +449,7 @@ async function createPdf(saveLocal){
    mal_angulo:[489,431],quebradas:[489,442],invaden:[489,453],
    color_anormal:[235,486],manchas:[235,498],def_total:[354,486],def_parcial:[354,498],insectos:[489,486],
    obj_riesgo:[91,552],obj_interferencias:[91,565],obj_sitio:[91,578],obj_regulacion:[91,591],
-   p_formacion:[235,552],p_limpieza:[235,565],p_aclareo:[235,578],p_refaldado:[235,591],p_terciado:[235,604],p_balanceo:[235,617],
+   p_formacion:[235,552],p_limpieza:[235,565],p_aclareo:[235,578],p_refaldado:[235,591],p_terciado:[235,604],p_balanceo:[235,617],p_reduccion:[235,630],
    extr_vereda:[354,552],extr_svereda:[354,565],extr_cierre_plantera:[354,578],corte_superficial:[354,604],corte_profundo:[354,617],
    trasplante:[527,552],tratamiento:[527,565],plantacion:[527,552],cierre_plantera:[527,565],apertura_plantera:[527,578],ampliacion_plantera:[527,591],reduccion_plantera:[527,604],correr_plantera:[527,617],
    banda:[354,650],tutorado:[354,662],seguimiento:[527,650],vereda_elevada:[621,650]
@@ -405,6 +469,9 @@ async function createPdf(saveLocal){
    }
   }
   if(selectedInspector && selectedInspector.signature){const sig=await doc.embedPng(dataUrlToBytes(selectedInspector.signature));p1.drawImage(sig,{x:313*s1,y:topY(p1.getHeight(),891,s1),width:104*s1,height:32*s1});}else if(hasSignature){const sig=await doc.embedPng(canvas.toDataURL());p1.drawImage(sig,{x:313*s1,y:topY(p1.getHeight(),891,s1),width:104*s1,height:32*s1});}
+  const recoverySnapshot=formSnapshot();
+  recoverySnapshot.photos=[];
+  doc.setSubject("C4_RELEVAMIENTO_V1:"+JSON.stringify(recoverySnapshot));
   const out=await doc.save();
   const cleanPart=v=>(v||"").trim().replace(/[\\\\/:*?"<>|]+/g," ").replace(/\\s+/g," ");
   const fileName=((cleanPart($("calle").value)+" "+cleanPart($("numero").value)).trim()||"Acta de inspeccion")+".pdf";
@@ -423,7 +490,6 @@ async function createPdf(saveLocal){
      if(downloads){const stored=await downloads.savePdf({fileName:lastPdfName,data:base64});lastDownloadUri=stored.uri;savedInDownloads=true;}
     }
    }catch(nativeErr){console.warn("No se pudo guardar el PDF en Descargas de Android",nativeErr);}
-   $("openPdf").disabled=false;
    if(!savedInDownloads){const a=document.createElement("a");a.href=lastPdfBlobUrl;a.download=lastPdfName;a.click();}
    $("status").textContent=savedInDownloads?"PDF generado y guardado en Descargas/Comuna 4 - Relevamientos: "+lastPdfName:"PDF generado: "+lastPdfName+". Se intentó descargarlo.";
   }
@@ -434,10 +500,38 @@ async function createPdf(saveLocal){
 }
 $("generate").onclick=()=>createPdf(true);
 function bytesToBase64(bytes){let binary="";const chunk=0x8000;for(let i=0;i<bytes.length;i+=chunk){binary+=String.fromCharCode.apply(null,bytes.subarray(i,Math.min(i+chunk,bytes.length)));}return btoa(binary);}
-$("openPdf").addEventListener("click",async()=>{try{const downloads=window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.Downloads;if(lastDownloadUri&&downloads&&downloads.openPdf){await downloads.openPdf({uri:lastDownloadUri});}else if(lastPdfBlobUrl){window.open(lastPdfBlobUrl,"_blank");}else{$("status").textContent="Primero generá un PDF.";}}catch(e){console.error(e);$("status").textContent="No se pudo abrir el PDF: "+e.message;}});
+
 const APPS_SCRIPT_URL="https://script.google.com/macros/s/AKfycbyXus7qgt5v8XZF2rmmMIcVKZpBEs4abA6yL7RDNU90UbnudUxhQJrzKJeIYz4cRGLj/exec";
 async function getEndpoint(){return APPS_SCRIPT_URL;}
 async function postAppsScript(payload){const url=await getEndpoint();if(!url)throw new Error("No se configuró la URL de Apps Script.");const http=window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.CapacitorHttp;if(http&&http.post){const r=await http.post({url,headers:{"Content-Type":"application/json"},data:payload,connectTimeout:30000,readTimeout:60000});return typeof r.data==="string"?JSON.parse(r.data):r.data;}const r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});return await r.json();}
+const APP_TOKEN="C4-ARBOLADO-2026-PLANILLA-4";
+$("recoverDrive").addEventListener("click",()=>{$("recoverPdfFile").click();});
+$("recoverPdfFile").addEventListener("change",async()=>{
+ const input=$("recoverPdfFile"),file=input.files&&input.files[0];if(!file)return;
+ try{
+  $("recoverDrive").disabled=true;
+  $("status").textContent="Leyendo el PDF y recuperando los datos...";
+  if(!window.PDFLib||!PDFLib.PDFDocument)throw new Error("No está disponible el lector de PDF.");
+  const pdf=await PDFLib.PDFDocument.load(await file.arrayBuffer());
+  const subject=pdf.getSubject()||"",prefix="C4_RELEVAMIENTO_V1:";
+  if(!subject.startsWith(prefix))throw new Error("Este PDF no contiene datos recuperables. Los PDF generados antes de esta actualización no incluyen el respaldo interno.");
+  let snapshot;try{snapshot=JSON.parse(subject.slice(prefix.length));}catch(_){throw new Error("No se pudieron interpretar los datos del PDF.");}
+  if(!snapshot||!snapshot.fields||!snapshot.boxes)throw new Error("El PDF no contiene un relevamiento completo.");
+  await restoreSnapshot(snapshot);await saveDraft();
+  $("status").textContent="Datos recuperados de "+file.name+". Revisalos y, si corresponde, presioná «Enviar datos a planilla». No se envió nada automáticamente.";
+  window.scrollTo({top:0,behavior:"smooth"});
+ }catch(e){console.error(e);$("status").textContent="No se pudo recuperar el PDF: "+e.message;}
+ finally{$("recoverDrive").disabled=false;input.value="";}
+});
+$("openDeny").addEventListener("click",()=>{if(!$("aviso").value.trim()){ $("status").textContent="Completá el número de reclamo (AVISO) antes de denegar.";return;}$("formContent").hidden=true;$("denyScreen").hidden=false;$("denyEditor").hidden=false;$("denyPreviewPanel").hidden=true;$("denyStatus").textContent="";window.scrollTo(0,0);});
+function closeDenyScreen(){$("denyScreen").hidden=true;$("formContent").hidden=false;$("denyEditor").hidden=false;$("denyPreviewPanel").hidden=true;$("denyStatus").textContent="";window.scrollTo(0,0);}
+$("cancelDeny").addEventListener("click",closeDenyScreen);
+$("cancelDenyPreview").addEventListener("click",closeDenyScreen);
+$("denyExtra").addEventListener("input",()=>$("denyCount").textContent=String($("denyExtra").value.length));
+$("reviewDeny").addEventListener("click",()=>{const reason=$("denyReason").value.trim();if(!reason){$("denyStatus").textContent="Seleccioná un motivo de denegación.";return;}const aviso=$("aviso").value.trim();const extra=$("denyExtra").value.trim();const body="Estimado/a vecino/a:\n\nEn relación con el reclamo "+aviso+", le informamos que no corresponde realizar la intervención solicitada por el siguiente motivo:\n\n"+reason+(extra?"\n\n"+extra:"")+"\n\nSaludos cordiales,\nÁrea de Arbolado\nComuna 4";$("denyEmailBody").value=body;$("denyEditor").hidden=true;$("denyPreviewPanel").hidden=false;$("denyStatus").textContent="Revisá el correo y corregí lo que consideres necesario antes de confirmar el envío.";window.scrollTo(0,0);});
+$("editDeny").addEventListener("click",()=>{$("denyPreviewPanel").hidden=true;$("denyEditor").hidden=false;$("denyStatus").textContent="Podés modificar el motivo o el complemento y volver a revisar el correo.";window.scrollTo(0,0);});
+$("confirmDeny").addEventListener("click",async()=>{const emailBody=$("denyEmailBody").value;if(!emailBody.trim()){$("denyStatus").textContent="El texto del correo está vacío. Revisalo antes de enviar.";return;}if(!navigator.onLine){$("denyStatus").textContent="Necesitás conexión a internet para enviar la notificación.";return;}const btn=$("confirmDeny");try{btn.disabled=true;$("editDeny").disabled=true;$("cancelDenyPreview").disabled=true;$("denyStatus").textContent="Enviando el correo revisado al vecino...";const result=await postAppsScript({action:"denyClaim",token:APP_TOKEN,aviso:$("aviso").value.trim(),reason:$("denyReason").value.trim(),extra:$("denyExtra").value.trim(),emailBody});if(!result||result.ok!==true)throw new Error(result&&result.error||"El servidor no confirmó el envío.");$("denyStatus").textContent=result.message||"Notificación enviada.";if(result.alreadySent){$("denyStatus").textContent=result.message||"La notificación ya figuraba enviada. No se volvió a enviar.";}$("confirmDeny").textContent="Envío procesado";btn.disabled=true;}catch(e){console.error(e);$("denyStatus").textContent="No se pudo enviar la denegación: "+e.message;}finally{btn.disabled=false;$("editDeny").disabled=false;$("cancelDenyPreview").disabled=false;}});
+
 $("sharePdf").addEventListener("click",async()=>{try{
  if(!navigator.onLine){$("status").textContent="No hay conexión a internet. Usá “Generar PDF completo” para guardar una copia en Descargas y enviarla a Drive cuando vuelva la conexión.";return;}
  $("sharePdf").disabled=true;
@@ -445,70 +539,34 @@ $("sharePdf").addEventListener("click",async()=>{try{
  if(!pdf)throw new Error("No se pudo preparar el PDF.");
  $("status").textContent="Enviando PDF a Google Drive...";
  const data=bytesToBase64(pdf.bytes);
- const result=await postAppsScript({action:"savePdf",token:"C4-ARBOLADO-2026-PLANILLA-4",fileName:pdf.fileName,mimeType:"application/pdf",data});
+ const result=await postAppsScript({action:"savePdf",token:"C4-ARBOLADO-2026-PLANILLA-4",fileName:pdf.fileName,mimeType:"application/pdf",data,snapshot:appState.draft});
  if(!result||result.ok!==true)throw new Error(result&&result.error||"El servidor no confirmó el guardado.");
  $("status").textContent="PDF enviado correctamente a Google Drive: "+pdf.fileName+". No se guardó una copia en Descargas.";
  }catch(e){console.error(e);$("status").textContent="No se pudo enviar el PDF a Drive: "+e.message;}
  finally{$("sharePdf").disabled=false;}
 });
-function interventionSummary(){const names={obj_riesgo:"Reducción de riesgo",obj_interferencias:"Eliminar interferencias",obj_sitio:"Adecuación al sitio",obj_regulacion:"Estructura",p_formacion:"Poda de formación",p_limpieza:"Poda de limpieza",p_aclareo:"Poda de aclareo",p_refaldado:"Refaldado",p_terciado:"Terciado",p_balanceo:"Balanceo",extr_vereda:"Extracción con vereda",extr_svereda:"Extracción sin vereda",extr_cierre_plantera:"Extracción con cierre de plantera",corte_superficial:"Corte superficial de raíces",corte_profundo:"Corte profundo de raíces",trasplante:"Trasplante",tratamiento:"Tratamiento",plantacion:"Plantación",cierre_plantera:"Cierre de plantera",apertura_plantera:"Apertura de plantera",ampliacion_plantera:"Ampliación de plantera",reduccion_plantera:"Reducción de plantera",correr_plantera:"Correr plantera",banda:"Banda",tutorado:"Tutorado",seguimiento:"Seguimiento",vereda_elevada:"Vereda elevada"};return Object.entries(names).filter(([id])=>$(id)&&$(id).checked).map(([,v])=>v).join("; ");}
+function interventionSummary(){const names={obj_riesgo:"Reducción de riesgo",obj_interferencias:"Eliminar interferencias",obj_sitio:"Adecuación al sitio",obj_regulacion:"Estructura",p_formacion:"Poda de formación",p_limpieza:"Poda de limpieza",p_aclareo:"Poda de aclareo",p_refaldado:"Refaldado",p_terciado:"Terciado",p_balanceo:"Balanceo",p_reduccion:"Reducción",extr_vereda:"Extracción con vereda",extr_svereda:"Extracción sin vereda",extr_cierre_plantera:"Extracción con cierre de plantera",corte_superficial:"Corte superficial de raíces",corte_profundo:"Corte profundo de raíces",trasplante:"Trasplante",tratamiento:"Tratamiento",plantacion:"Plantación",cierre_plantera:"Cierre de plantera",apertura_plantera:"Apertura de plantera",ampliacion_plantera:"Ampliación de plantera",reduccion_plantera:"Reducción de plantera",correr_plantera:"Correr plantera",banda:"Banda",tutorado:"Tutorado",seguimiento:"Seguimiento",vereda_elevada:"Vereda elevada"};return Object.entries(names).filter(([id])=>$(id)&&$(id).checked).map(([,v])=>v).join("; ");}
 function hashRecord(value){let h1=0x811c9dc5;for(let i=0;i<value.length;i++){h1^=value.charCodeAt(i);h1=Math.imul(h1,0x01000193);}return (h1>>>0).toString(16);}
-function sheetRecord(){const f=id=>$(id)?.value?.trim()||"";const r={aviso:f("aviso"),fecha:dateISO(f("fecha")),intervencion:interventionSummary(),especie:f("especie"),dap:f("dap"),altura:f("altura"),m2:f("superficie"),codigoBaldosa:f("codigo_baldosa"),riesgo:f("riesgo"),observacion:f("observaciones"),inspector:f("nombre"),treeId:f("identificacion")};r.submissionId=hashRecord(JSON.stringify(r));return r;}
+function sheetRecord(){const f=id=>$(id)?.value?.trim()||"";const r={aviso:f("aviso"),calle:f("calle"),numero:f("numero"),fecha:dateISO(f("fecha")),intervencion:interventionSummary(),especie:f("especie"),dap:f("dap"),altura:f("altura"),m2:f("superficie"),codigoBaldosa:f("codigo_baldosa"),riesgo:f("riesgo"),observacion:f("observaciones"),inspector:f("nombre"),treeId:f("identificacion")};r.submissionId=hashRecord(JSON.stringify(r));return r;}
 async function flushPending(){const pending=JSON.parse(localStorage.getItem("c4_pending_sheet")||"[]");if(!pending.length)return 0;const remaining=[];let sent=0;for(const record of pending){try{const result=await postAppsScript({action:"saveTree",token:"C4-ARBOLADO-2026-PLANILLA-4",record});if(!result||result.ok!==true)throw new Error(result&&result.error||"Error");sent++;}catch(e){remaining.push(record);}}localStorage.setItem("c4_pending_sheet",JSON.stringify(remaining));return sent;}
-$("sendSheet").addEventListener("click",async()=>{try{const record=sheetRecord();if(!record.aviso){$("status").textContent="Completá el número de reclamo (AVISO) antes de enviar.";return;}if(!record.fecha){$("status").textContent="Revisá la fecha: debe tener el formato DD/MM/AAAA.";return;}if(!navigator.onLine){const pending=JSON.parse(localStorage.getItem("c4_pending_sheet")||"[]");pending.push(record);localStorage.setItem("c4_pending_sheet",JSON.stringify(pending));$("status").textContent="Sin conexión. Los datos quedaron guardados en este celular para enviarlos más tarde.";return;}$("sendSheet").disabled=true;const pendingSent=await flushPending();$("status").textContent="Buscando el reclamo por su número en la columna A...";const result=await postAppsScript({action:"saveTree",token:"C4-ARBOLADO-2026-PLANILLA-4",record});if(!result||result.ok!==true)throw new Error(result&&result.error||"No se pudo confirmar el envío.");$("status").textContent=(result.message||"Datos enviados a la planilla.")+(pendingSent?" También se enviaron "+pendingSent+" registro(s) que estaban pendientes.":"");}catch(e){console.error(e);$("status").textContent="No se pudieron enviar los datos: "+e.message;}finally{$("sendSheet").disabled=false;}});
+$("sendSheet").addEventListener("click",async()=>{try{const record=sheetRecord();const isExtraction=/extracci[oó]n/i.test(record.intervencion);if(!record.aviso&&!isExtraction){$("status").textContent="Sin número de reclamo, solo se pueden enviar actas cuya intervención sea una extracción.";return;}if(!record.fecha){$("status").textContent="Revisá la fecha: debe tener el formato DD/MM/AAAA.";return;}if(!navigator.onLine){const pending=JSON.parse(localStorage.getItem("c4_pending_sheet")||"[]");pending.push(record);localStorage.setItem("c4_pending_sheet",JSON.stringify(pending));$("status").textContent="Sin conexión. Los datos quedaron guardados en este celular para enviarlos más tarde.";return;}$("sendSheet").disabled=true;const pendingSent=await flushPending();$("status").textContent=record.aviso?"Buscando el reclamo por su número en la columna A...":"Registrando la extracción directamente en EXTRACCIONES SLA...";const result=await postAppsScript({action:"saveTree",token:"C4-ARBOLADO-2026-PLANILLA-4",record});if(!result||result.ok!==true)throw new Error(result&&result.error||"No se pudo confirmar el envío.");$("status").textContent=(result.message||"Datos enviados a la planilla.")+(pendingSent?" También se enviaron "+pendingSent+" registro(s) que estaban pendientes.":"");}catch(e){console.error(e);$("status").textContent="No se pudieron enviar los datos: "+e.message;}finally{$("sendSheet").disabled=false;}});
 window.addEventListener("online",async()=>{try{const sent=await flushPending();if(sent)$("status").textContent="Se enviaron "+sent+" registro(s) pendientes a la planilla.";}catch(e){console.warn("No se pudieron reenviar registros pendientes",e);}});
 async function embedPhotoUpright(doc,file){
- let source=null,bitmap=null,objectUrl=null;
+ let source=null,bitmap=null;
  try{
-  if(typeof createImageBitmap==="function"){
-   try{
-    bitmap=await createImageBitmap(file,{imageOrientation:"from-image"});
-    source=bitmap;
-   }catch(e){
-    console.warn("Se utilizará el decodificador alternativo",e);
-   }
+  if("createImageBitmap" in window){
+   try{bitmap=await createImageBitmap(file,{imageOrientation:"from-image"});}catch(_){bitmap=await createImageBitmap(file);}
+   source=bitmap;
+  }else{
+   const url=URL.createObjectURL(file);
+   try{source=await new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=reject;im.src=url;});}
+   finally{URL.revokeObjectURL(url);}
   }
-
-  if(!source){
-   objectUrl=URL.createObjectURL(file);
-   source=await new Promise((resolve,reject)=>{
-    const img=new Image();
-    img.onload=()=>resolve(img);
-    img.onerror=()=>reject(new Error("El navegador no pudo leer la fotografía."));
-    img.src=objectUrl;
-   });
-  }
-
-  const width=source.width||source.naturalWidth;
-  const height=source.height||source.naturalHeight;
-
-  if(!width||!height){
-   throw new Error("La fotografía no tiene dimensiones válidas.");
-  }
-
-  const canvas=document.createElement("canvas");
-  canvas.width=width;
-  canvas.height=height;
-
-  const ctx=canvas.getContext("2d");
-  if(!ctx)throw new Error("No se pudo preparar la fotografía.");
-
-  ctx.drawImage(source,0,0,width,height);
-
-  const blob=await new Promise((resolve,reject)=>{
-   canvas.toBlob(
-    b=>b?resolve(b):reject(new Error("No se pudo convertir la fotografía.")),
-    "image/png"
-   );
-  });
-
-  const bytes=new Uint8Array(await blob.arrayBuffer());
-  return await doc.embedPng(bytes);
-
- }finally{
-  if(bitmap&&bitmap.close)bitmap.close();
-  if(objectUrl)URL.revokeObjectURL(objectUrl);
- }
+  const c=document.createElement("canvas");c.width=source.width||source.naturalWidth;c.height=source.height||source.naturalHeight;
+  c.getContext("2d").drawImage(source,0,0,c.width,c.height);
+  const blob=await new Promise((resolve,reject)=>c.toBlob(b=>b?resolve(b):reject(new Error("No se pudo procesar la fotografía")),"image/jpeg",.96));
+  return await doc.embedJpg(await blob.arrayBuffer());
+ }finally{if(bitmap&&bitmap.close)bitmap.close();}
 }
 $("reset").onclick=()=>{if(!confirm("¿Borrar los datos del relevamiento actual? Los registros guardados en el historial se conservarán."))return;textFields.filter(id=>id!=="nombre"&&id!=="dni").forEach(id=>$(id).value="");checks.forEach(id=>$(id).checked=false);photos=[];renderPhotos();if(selectedInspector){$("nombre").value=selectedInspector.name;$("dni").value=selectedInspector.dni;drawInspectorSignature(selectedInspector);}else if(inspectorMode==="new"){ctx.clearRect(0,0,canvas.width,canvas.height);hasSignature=false;}$("fecha").value=todayAR();syncAddress();scheduleSave();};
 </script>
