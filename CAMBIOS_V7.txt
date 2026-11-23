@@ -1,16 +1,34 @@
-RELEVAMIENTO COMUNA 4 — ACTUALIZACIÓN V7 SOBRE V6
+RELEVAMIENTO COMUNA 4 — ACTUALIZACIÓN SOBRE autoria-v7
 
-CAMBIOS
-1. Enviar PDF a Drive está habilitado desde el inicio.
-2. Al pulsarlo, la aplicación arma el PDF en memoria y lo envía directamente a Google Drive por Apps Script. No lo guarda primero en Descargas ni en caché.
-3. Generar PDF completo conserva la descarga local en Descargas/Comuna 4 - Relevamientos.
-4. La URL de Apps Script queda incorporada en la aplicación:
-   https://script.google.com/macros/s/AKfycbyXus7qgt5v8XZF2rmmMIcVKZpBEs4abA6yL7RDNU90UbnudUxhQJrzKJeIYz4cRGLj/exec
-5. Se incorpora un selector nativo de Android para elegir fotos desde la galería/archivos. Se admiten hasta cuatro imágenes y se conserva el procesamiento de orientación EXIF para el PDF.
-6. Se conserva la lógica de envío de datos a RECLAMOS SUACI SLA FINAL, incluyendo el manejo de más de un árbol para un mismo reclamo.
+BASE PRESERVADA
+- Se utiliza la rama autoria-v7 como base.
+- Se conserva la sección «Acerca de» y la autoría de Juan Pablo Torrilla.
+- Se mantienen el formulario, los inspectores y firmas, el guardado local, las fotografías, el PDF original, el envío a Drive y la lógica de varios árboles por reclamo.
+- No se modifica la estructura de la planilla RECLAMOS SUACI SLA FINAL.
 
-IMPORTANTE
-- El envío a Drive depende de que la implementación de Apps Script siga activa, desplegada con acceso para cualquier usuario y ejecutándose como urbanisticacomuna4@gmail.com.
-- El archivo Code.gs del ZIP se incluye como referencia del backend. No reemplazar el Apps Script ya desplegado si el envío de datos a la planilla está funcionando y el código del servidor actual ya tiene las mismas acciones saveTree y savePdf.
-- El ZIP contiene el proyecto fuente para generar el APK. La compilación debe ejecutarse con el workflow de GitHub Actions incluido; este entorno no tiene un proyecto Android generado ni ha compilado el APK.
-- Antes de distribuir, probar en el teléfono: selección de fotos de galería, generación PDF local, envío PDF directo a Drive y envío de uno y dos árboles a la planilla.
+CAMBIOS INCORPORADOS EN ESTA ACTUALIZACIÓN
+1. Denegar reclamo: pantalla independiente con diez motivos, complemento de hasta 200 caracteres y contador. El texto para el vecino queda separado de las observaciones internas. El envío se dirige al correo de la columna G de BASE GENERAL; registra DENEGADO en K, DENEGACIÓN ENVIADA en M y fecha en N. El backend evita un segundo envío si ya figura notificado.
+2. Recuperación desde Drive: al enviar un PDF, se guarda también un archivo auxiliar con la información necesaria para recuperar el relevamiento. Se agrega la opción «Recuperar desde Drive»; la recuperación vuelve a guardar el registro en el historial local.
+3. Actualización de altura: la aplicación envía el campo N.º como texto libre. Al enviar datos, el backend busca el AVISO exclusivamente en la columna A. Si el N.º/altura difiere, actualiza únicamente la columna C (Chapa catastral) de las filas asociadas a ese reclamo. El resto de la estructura no se modifica.
+4. Tipografía y espaciado: se reducen moderadamente tamaños de letra, márgenes, rellenos y separaciones entre campos para evitar que el contenido se superponga o tape información inferior. Se conserva la estructura y los campos del formulario.
+5. Workflow: se habilita la rama autoria-v7 como disparador de compilación Android, además de los disparadores existentes.
+
+ACCIONES QUE YA ESTABAN EN V7 Y SE CONSERVAN
+- Enviar PDF directamente a Google Drive.
+- Generar PDF local en Descargas.
+- Recuperación y eliminación de registros locales.
+- Selección de fotografías desde cámara o galería, hasta cuatro, con orientación EXIF.
+- Envío de datos a la planilla y soporte de más de un árbol para el mismo AVISO.
+
+IMPORTANTE: DESPLIEGUE DEL BACKEND
+El archivo google-apps-script/Code.gs ahora contiene las acciones savePdf, listActas, getActa, saveTree y denyClaim. Para que funcionen la recuperación desde Drive, la actualización de la columna C y la notificación por correo, hay que actualizar el proyecto de Apps Script asociado a urbanisticacomuna4@gmail.com, autorizar los permisos solicitados (Sheets, Drive y envío de correo) y volver a desplegar la aplicación web ejecutada como esa cuenta y accesible para los usuarios previstos. No se ha modificado el despliegue publicado desde este entorno.
+
+PLANILLAS
+- RECLAMOS SUACI SLA FINAL: se mantiene Spreadsheet ID y GID configurados en el proyecto. La única escritura nueva fuera de I:R es la actualización condicional de la columna C cuando cambia el N.º/altura.
+- BASE GENERAL: se consulta BASE_RECLAMOS; correo en G, estado en K, marca de notificación en M y fecha en N.
+
+COMPILACIÓN
+En GitHub: Actions > Generar APK Android > Run workflow; seleccionar la rama autoria-v7 y descargar el artefacto relevamiento-arbolado-apk cuando termine correctamente.
+
+ESTADO DE VERIFICACIÓN
+Se revisa la sintaxis JavaScript del formulario y del backend y la configuración JSON. La conexión real con Google, el envío de correo, la recuperación desde Drive y la compilación APK deben confirmarse después del despliegue y desde un teléfono. No se afirma que esas pruebas remotas ya se hayan ejecutado.
