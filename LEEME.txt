@@ -1,58 +1,34 @@
-RELEVAMIENTO COMUNA 4 — VERSIÓN CONSOLIDADA SOBRE V6
+RELEVAMIENTO COMUNA 4 — V7 ACTUALIZADA
 
-Esta versión parte del proyecto V6 original para conservar el formulario, los inspectores y firmas, el guardado local, el historial, la plantilla PDF y el guardado nativo en Descargas.
+Esta entrega parte de la rama autoria-v7 y conserva la autoría de Juan Pablo Torrilla y las funciones que ya incluía esa versión.
 
-CAMBIOS INCLUIDOS
-- Nombre de la aplicación: Relevamiento Comuna 4.
-- Fecha de relevamiento con formato visible DD/MM/AAAA. También convierte fechas ISO de borradores antiguos al formato nuevo.
-- Campo ID editable entre AVISO y ARME.
-- Campo ARME más angosto.
-- Inspector BELEN ALEGRE actualizado a Andrea Belen Alegre, conservando DNI y firma originales.
-- Se mantienen los inspectores existentes y la opción Nuevo inspector con datos y firma manuscrita.
-- Fotografías por dos vías: tomar fotografía con cámara o elegir imágenes mediante el selector nativo de Android (galería/archivos). Máximo cuatro.
-- Las fotos conservan su orientación EXIF y proporciones en la segunda página del PDF.
-- Se mantiene el guardado local, recuperación y eliminación de relevamientos.
-- Generar PDF mantiene el guardado en Descargas/Comuna 4 - Relevamientos y el nombre de archivo basado en calle y altura. Este botón sirve también como alternativa cuando no hay conexión.
-- Enviar PDF a Drive genera el PDF temporalmente en memoria y lo sube directamente mediante Apps Script, sin guardarlo primero en Descargas ni en la caché.
-- Enviar datos a planilla transmite fecha, intervención según inspector, especie, DAP, altura, M2, código de baldosa, riesgo, observación e inspector.
-- La planilla se busca EXCLUSIVAMENTE por AVISO en la columna A. No utiliza calle ni altura para localizar el reclamo. Si no encuentra el número, no escribe.
-- Para un segundo árbol del mismo reclamo, crea una fila hermana copiando la estructura y conserva columnas A:H y S:X; escribe los datos del árbol en I:R.
-- Los envíos de planilla hechos sin conexión quedan en cola local y se reintentan al recuperar internet o al volver a enviar.
-- El envío incluye un identificador estable para evitar duplicar el mismo registro al reintentar.
+NUEVO EN ESTA ENTREGA
+- Pantalla independiente DENEGAR, con motivos predefinidos y complemento de hasta 200 caracteres. El correo al vecino no incluye las observaciones internas del inspector.
+- Recuperar relevamientos guardados en Google Drive, además del historial local.
+- Actualizar únicamente la columna C de RECLAMOS SUACI SLA FINAL cuando cambia el N.º/altura enviado por la aplicación.
+- Ajustes moderados de tipografía y espaciado para evitar superposiciones y mantener visible la información inferior.
 
-CONFIGURACIÓN OBLIGATORIA DE GOOGLE APPS SCRIPT
-1. Abrir el proyecto de Apps Script asociado a la cuenta urbanisticacomuna4@gmail.com.
-2. Reemplazar Code.gs por google-apps-script/Code.gs incluido en este ZIP.
-3. Guardar y desplegar como Aplicación web:
-   - Ejecutar como: Yo (urbanisticacomuna4@gmail.com).
-   - Quién tiene acceso: Cualquier usuario.
-4. Autorizar el acceso a Google Sheets y Google Drive cuando Google lo solicite.
-5. Copiar la URL de implementación terminada en /exec.
-6. La URL de implementación queda incorporada en el código de la aplicación; el inspector no tiene que copiarla ni ingresarla en cada teléfono.
+SE CONSERVA
+- Envío de PDF a Drive y generación local en Descargas.
+- Historial local con recuperar y eliminar.
+- Fotografías por cámara o galería, hasta cuatro, conservando la orientación.
+- Envío de datos a planilla, búsqueda exclusiva por AVISO y soporte de varios árboles para un reclamo.
+- Sección «Acerca de» y autoría de Juan Pablo Torrilla.
 
-El Apps Script está configurado para la planilla indicada en el proyecto anterior:
-- Spreadsheet ID: 1l_58opct0coaz2suIsez7UDtB5Wa1RiF
-- GID: 1068617970
-- Token: C4-ARBOLADO-2026-PLANILLA-4
+PASO NECESARIO ANTES DE PROBAR LAS FUNCIONES NUEVAS
+El archivo google-apps-script/Code.gs contiene el backend actualizado. Debe copiarse al proyecto Apps Script asociado a urbanisticacomuna4@gmail.com, guardarse, autorizar permisos de Google Sheets, Drive y envío de correo, y volver a desplegarse como aplicación web. No se ha modificado el despliegue publicado desde esta entrega.
 
-Los PDFs se guardan en la raíz de Mi unidad de la cuenta que despliega el Apps Script. Se puede configurar una carpeta de destino específica en Code.gs si luego se proporciona su ID.
+COMPILAR APK
+1. Subir el contenido de esta carpeta al repositorio en la rama autoria-v7 (no subir el ZIP dentro del repositorio).
+2. Abrir GitHub > Actions > Generar APK Android.
+3. Elegir Run workflow y seleccionar autoria-v7.
+4. Cuando termine correctamente, descargar el artefacto relevamiento-arbolado-apk.
 
-GENERAR APK CON GITHUB ACTIONS
-- Subir el contenido de esta carpeta al repositorio, en la rama version-4 (no usar un ZIP anidado dentro del repositorio).
-- El workflow está habilitado para main y version-4.
-- En GitHub: Actions > Generar APK Android > Run workflow; seleccionar version-4.
-- Descargar el artefacto relevamiento-arbolado-apk cuando finalice correctamente.
+PRUEBAS PENDIENTES EN EL TELÉFONO
+- Envío de PDF a Drive y recuperación desde Drive.
+- Envío de uno y dos árboles para el mismo AVISO.
+- Cambio de N.º/altura y comprobación de que solo se actualice la columna C.
+- Denegación con un correo de prueba y comprobación de K, M y N en BASE GENERAL.
+- Revisión visual de todos los campos y del PDF para confirmar que no se tape información.
 
-IMPORTANTE SOBRE LAS PRUEBAS
-- Se verificó la sintaxis JavaScript del formulario, la sintaxis del Apps Script y la configuración JSON.
-- Se probó la lógica del servidor en una prueba controlada: si AVISO no existe no escribe; si existe escribe únicamente en I:R de la fila coincidente.
-- No se pudo completar una compilación local en este entorno porque npm install agotó el tiempo de espera. La compilación Android debe ejecutarse con el workflow de GitHub.
-- Antes de usar operativamente, probar en un teléfono la selección de inspectores, firma, guardado/recuperación, fotos, PDF, subida a Drive y envío a Sheets. No borrar datos ni desinstalar la versión que contiene relevamientos guardados hasta verificar que están respaldados.
-
-CAMBIOS DE ESTA ACTUALIZACIÓN SOBRE V6
-- El botón Enviar PDF a Drive está habilitado desde el inicio.
-- Al pulsarlo, el formulario se convierte a PDF en memoria y se envía directamente al Apps Script. No se crea una copia en Descargas ni en caché.
-- El botón Generar PDF completo sigue creando una copia local en Descargas.
-- La URL Apps Script queda fija en la aplicación para evitar solicitarla a cada inspector.
-- Se agrega PhotoPickerPlugin nativo de Android para abrir el selector de imágenes del sistema y leer las fotos seleccionadas. Se mantiene el selector HTML como alternativa si se ejecuta fuera de Android.
-- Se conserva sin cambios la estructura de datos y la lógica de envío a la hoja Reclamos.
+No desinstalar la versión que contiene relevamientos guardados hasta verificar que los registros estén respaldados.
